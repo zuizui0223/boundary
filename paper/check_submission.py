@@ -13,6 +13,8 @@ WORD_RE=re.compile(r"\b[\w*<>/=+.-]+\b",re.UNICODE)
 def words(text): return len(WORD_RE.findall(text))
 def require(text,token):
     if token not in text: raise SystemExit(f'missing required token: {token}')
+def require_ci(text,token):
+    if token.lower() not in text.lower(): raise SystemExit(f'missing required token: {token}')
 def forbid(text,token):
     if token.lower() in text.lower(): raise SystemExit(f'forbidden token: {token}')
 
@@ -24,8 +26,10 @@ def main():
     paras=[z.strip() for z in re.split(r'\n\s*\n',proposal) if z.strip()]
     if len(paras)!=1: raise SystemExit('proposal must be one paragraph')
     if words(proposal)>300: raise SystemExit(f'proposal >300 words: {words(proposal)}')
-    for token in ('identification axis','k-1-r','1/Gamma <= q_1/q_0 <= Gamma','breakdown factor','pollination','seed dispersal'):
+    for token in ('identification axis','k-1-r','1/Gamma <= q_1/q_0 <= Gamma','breakdown factor'):
         require(proposal,token)
+    for token in ('pollination','seed dispersal'):
+        require_ci(proposal,token)
     for token in ('k - 1 - r','Gamma*=max(rho_hat,1/rho_hat)','Design Rule 1','Design Rule 2','Figure 1. Biological proximity','Figure 2. Direct channel','Figure 3. Calibration transport'):
         require(m,token)
     for token in ('Ecology believes molecular data are mechanism and field data are pattern','Molecular data are not mechanistic','statistically independent'):
