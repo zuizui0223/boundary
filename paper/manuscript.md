@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Ecological research uses *mechanistic* for several legitimate forms of evidence, including measurements close to biological machinery and observations that discriminate among competing process explanations. We argue that biological proximity and mechanism identification are different properties. A proximal measurement can remain compatible with several competing mechanisms, whereas a simple field observation can be strongly discriminating when it excludes alternatives. We make this distinction exact for recurring multiplicative ecological measurements. For `W=prod_j F_j`, net-only observations leave a `k-1` dimensional product-preserving equivalence class; `r` independent channel anchors leave `k-1-r` unresolved dimensions. In the common proxy case `W_i=F_iE_i`, `X_i=q_iF_i`, stable, bounded and unrestricted proxy transport form one family under `1/Gamma <= q_1/q_0 <= Gamma`. Finite `Gamma` yields a sharp joint identified set and a reference-invariant breakdown factor, while direct calibration creates a separate 0/1/2 anchor ladder. The resulting principle is that biological proximity and identification strength should be treated as distinct dimensions of mechanistic evidence.
+Ecological research uses *mechanistic* for several legitimate forms of evidence, including measurements close to biological machinery and observations that discriminate among competing process explanations. We argue that biological proximity and mechanism identification are different properties, and that mechanism non-identification is not the same problem as failure to reject a null hypothesis, poor fit, or sampling imprecision. A proximal measurement can remain compatible with several competing mechanisms, whereas a simple field observation can be strongly discriminating when it excludes alternatives. We make this distinction exact for recurring positive multiplicative ecological measurements. In log coordinates, exact log-linear observations with matrix `M` leave structural dimension `k-rank(M)`; a new scalar observation reduces that dimension if and only if it adds row rank. Net-only observation of `W=prod_j F_j` is the special case with `k-1` product-preserving degrees of freedom, and `r` independent channel anchors leave `k-1-r`. In the common proxy case `W_i=F_iE_i`, `X_i=q_iF_i`, stable, bounded and unrestricted proxy transport form one family under `1/Gamma <= q_1/q_0 <= Gamma`. Finite `Gamma` yields a sharp joint identified set and a reference-invariant breakdown factor, while direct calibration creates a separate 0/1/2 anchor ladder. The resulting principle is that biological proximity and identification strength should be treated as distinct dimensions of mechanistic evidence, and that increasing precision cannot repair an observation map that remains structurally invariant along the relevant mechanism-equivalence directions.
 
 ## 1. Introduction
 
@@ -14,6 +14,8 @@ The distinction matters whenever several mechanisms can generate the same observ
 
 This principle does not imply that molecular scale is irrelevant, that genomics is non-mechanistic, or that all field observations are equally informative. Molecular and genomic measurements can provide causal perturbations, physical constraints and close access to biological machinery. The narrower claim is that none of these properties alone guarantees identification among the particular competing mechanisms under study. Likewise, field observations need not remain merely descriptive when their observation map separates explicit alternatives.
 
+The identification problem considered here should also be separated from several neighbouring inferential problems. Rejecting a null hypothesis may establish that a particular no-effect or restricted explanation is inconsistent with the data while leaving several non-null mechanisms observationally equivalent. Small residual error or even exact fit does not select a unique mechanism when several mechanism states map to the same observable target. Increasing replication or precision can reduce sampling uncertainty without changing structural identification if the observation map itself is unchanged. Finally, identifying a counterfactual causal contrast and identifying a complete biological mechanism decomposition are different targets: either can be informative without automatically solving the other. Our question is narrower and structural: **given declared mechanism alternatives, which distinctions are preserved or collapsed by the current observation map?**
+
 We formalise this distinction using a recurring ecological measurement architecture in which several positive biological stages combine multiplicatively. Pollination provides a concrete example. At visitor type `m`, effective contribution can be written as `S_m = V_m E_m`, where `V_m` is interaction quantity, such as visitation rate, and `E_m` is per-interaction effectiveness. Community service then aggregates those contributions as `S=sum_m V_mE_m`. Pollination studies explicitly distinguish visitation or quantity from per-visit effectiveness, and combine them when estimating pollinator importance or service (Rader et al. 2012; Reynolds & Fenster 2008; Ballantyne et al. 2017). Network degree, visitor abundance or visitation alone may therefore describe or proxy the quantity side of this architecture, but they are not effective service unless the effectiveness term is fixed or otherwise known. Seed dispersal supplies an independent quantity-by-quality architecture in which effectiveness is likewise defined by the product of quantity and quality (Schupp et al. 2010).
 
 The same logic appears in longer ecological measurement chains. A study may wish to connect change in a visitor community to effective service, dependency or reproductive assurance, and finally a demographic or trait response. Observing only an endpoint does not, by itself, identify which unobserved intermediate stage changed. If a declared endpoint factorises as a product of positive stages, the number of unresolved stages has a precise structural meaning.
@@ -22,9 +24,9 @@ This is also a practical **joint-measurement bottleneck**, not only an algebraic
 
 A second problem appears when one stage is observed only through a proxy. Relative comparisons are commonly used to avoid unknown absolute calibration. If the proxy is `X_i=q_iF_i`, an unknown constant scale indeed cancels when `q_1=q_0`. But the scientifically relevant question is whether calibration transports across the regimes being compared.
 
-We develop three linked quantitative results. First, net-only observations define an equivalence class rather than a unique mechanism decomposition. For a `k`-channel product this class has `k-1` free dimensions; each independent direct channel anchor removes one (Figure 2). Second, in the common two-channel proxy case, stable, bounded and unrestricted proxy transport form one calibration family that yields point identification, sharp partial identification and non-identification as limiting cases, together with a reference-invariant breakdown factor (Figure 3). Third, these boundaries generate operational rules: distinguish channel anchors from calibration anchors, match direct measurement effort to desired identification strength, and report calibration-induced uncertainty as a coupled joint set rather than independent marginal error bars.
+We develop four linked quantitative results. First, net-only observations define an equivalence class rather than a unique mechanism decomposition. Second, for the exact log-linear observation class induced by positive multiplicative channels, the residual structural dimension is `k-rank(M)`, and a new scalar measurement helps if and only if it contributes a new observation direction. The familiar `k-1-r` channel-anchor rule follows as a coordinate-anchor case. Third, in the common two-channel proxy comparison, stable, bounded and unrestricted proxy transport form one calibration family that yields point identification, sharp partial identification and non-identification as limiting cases, together with a reference-invariant breakdown factor. Fourth, these boundaries generate operational rules: distinguish channel anchors from calibration anchors, match direct measurement effort to desired identification strength, and report calibration-induced uncertainty as a coupled joint set rather than independent marginal error bars.
 
-The argument belongs to established traditions of structural identifiability, parametric identification, and partial identification (Bellman & Åström 1970; Rothenberg 1971; Manski 2003). We do not claim new identifiability algebra. The contribution is ecological and evidentiary: to add an explicit identification dimension to mechanistic evidence, make that distinction exact for a recurring ecological observation class, and carry the resulting information boundaries through sensitivity analysis to field-design and reporting consequences.
+The argument belongs to established traditions of structural identifiability, parametric identification, and partial identification (Bellman & Åström 1970; Rothenberg 1971; Manski 2003). We do not claim new identifiability algebra. The contribution is ecological and evidentiary: to add an explicit identification dimension to mechanistic evidence, make that distinction exact for a recurring ecological observation class, distinguish structural observation limits from statistical imprecision and model fit, and carry the resulting information boundaries through sensitivity analysis to field-design and reporting consequences.
 
 ## 2. Observation models
 
@@ -39,6 +41,8 @@ W(z) = prod_{j=1}^k F_j(z),    F_j(z)>0.
 The factorisation must be biologically justified for the chosen output, domain and census interval. The theory does not assert that every ecological response is multiplicative. It asks what follows when investigators already use a multiplicative measurement architecture.
 
 A net-only observation is any deterministic functional `O=Phi(W)`. This includes the full response curve, threshold-feasible sets, and any geometry or topology derived solely from them.
+
+For the stronger rank result below, write `x_j=log F_j` and represent each exact log-linear observation by a row vector. If the full observation matrix is `M` and the observed values are `y`, the compatible log-channel set is `C_y={x:Mx=y}`. The rank result concerns structural identification conditional on compatibility; sampling uncertainty around `y` is a separate layer.
 
 ### 2.2 Two-channel proxy comparisons
 
@@ -103,6 +107,30 @@ k - 1 - r,    0 <= r <= k-1.
 When `r=k-1`, the final channel is recovered from the product. Thus a four-stage chain observed only at its endpoint has three unresolved structural dimensions; one independent anchor leaves two, two leave one, and three point-identify the final stage.
 
 **Channel-anchor rule.** For a declared positive `k`-stage product, `k-1` independent channel anchors are sufficient for point identification of all stages.
+
+### Theorem R1 — observation rank determines residual structural dimension
+
+For exact log-linear observations of `k` positive channels, let `M` be the observation matrix and assume `C_y={x:Mx=y}` is nonempty. Then
+
+```text
+dim(C_y) = k - rank(M).
+```
+
+To see this, choose any compatible point `x_0`. Then `Mx=y` if and only if `M(x-x_0)=0`, so `C_y=x_0+ker(M)`. Translation does not change dimension and rank-nullity gives the result. All channels are point identified if and only if `rank(M)=k`.
+
+### Theorem R2 — a scalar observation helps if and only if it adds row rank
+
+Let the current observation matrix be `M`, and let a candidate scalar exact log-linear measurement have row `a^T`. Appending that row reduces the structural unidentified dimension if and only if
+
+```text
+a not in rowspan(M).
+```
+
+A single row can increase rank by at most one, so a helpful scalar observation reduces the residual dimension by exactly one. Duplicate observations, non-zero rescalings, or exact linear combinations of existing rows therefore add no structural identification direction.
+
+**Precision corollary.** Repeating an existing observation or improving its precision without changing the exact observation row can reduce sampling uncertainty but cannot reduce the structural nullity `k-rank(M)`. The claim is not that replication is statistically useless; it is that precision and identification rank are different resources.
+
+The `k-1-r` rule above is a special case. The net product contributes row `(1,...,1)`, and `r` distinct direct coordinate anchors contribute `r` independent coordinate rows, giving `rank(M)=r+1` and residual dimension `k-1-r`.
 
 ## 4. Calibration transport is one identification family
 
@@ -175,7 +203,7 @@ The word *anchor* refers to two distinct measurements and they should not be con
 
 **Calibration anchors** measure proxy conversion within regimes. With zero direct calibration anchors, unrestricted transport gives non-identification. With one anchor, local conversion is known but cross-regime transport still requires an external finite `Gamma`. With two anchors, both `q_0` and `q_1` are observed, so `kappa=q_1/q_0` is measured and the transport sensitivity assumption is removed for that comparison.
 
-**Design Rule 1 — Measure the missing identification information.** Use channel anchors to reduce unresolved mechanism dimensions and calibration anchors to replace transport assumptions with direct measurement.
+**Design Rule 1 — Measure the missing identification information.** Use channel anchors to reduce unresolved mechanism dimensions and calibration anchors to replace transport assumptions with direct measurement. More generally, in the exact log-linear class, prefer candidate observations that add a new row-space direction rather than merely another measurement along a direction already observed.
 
 ## 8. Why the architecture is ecologically relevant
 
@@ -183,31 +211,37 @@ Seed dispersal effectiveness is explicitly decomposed as quantity times quality 
 
 The pollinator-service example also distinguishes product and aggregation. The theorem applies directly to each contribution `V_mE_m`. If only the aggregate `sum_m V_mE_m` is observed, attribution among visitor types adds further ambiguity. Treating network degree or abundance as service can therefore collapse both within-type effectiveness and across-type allocation.
 
-## 9. Relation to mechanistic ecology and identification theory
+## 9. Relation to neighbouring inferential traditions
 
 Ecology already contains multiple traditions of mechanistic explanation. Mechanistic models encode processes explicitly; molecular and genomic studies may measure components close to biological machinery; causal-mechanistic investigations assemble evidence about structures and processes linking causes to responses (Smith et al. 2020; Grace et al. 2025; Siegel & Dee 2025; Correia et al. 2025). Our distinction is complementary: **given a declared set of competing mechanisms, does the observation map distinguish them?**
 
 This question cannot be answered from biological level alone. A genomic observation can be highly informative when alternatives predict different genomic states, but non-identifying when the same state is downstream of several alternatives (Ungerer et al. 2008; Rudman et al. 2018). A field observation can be weak when it records only an invariant endpoint, but strongly identifying when it anchors a missing channel.
 
-Structural identifiability and parametric identification are classical problems of whether model structure or parameters are uniquely recoverable from observable behaviour (Bellman & Åström 1970; Rothenberg 1971), while partial identification explicitly treats cases in which the data and assumptions determine a set rather than a point (Manski 2003). The algebra used here is elementary relative to those traditions. The contribution has three quantitative parts: a net-only ecological observation class whose `k`-channel equivalence dimension is quantified; a calibration-transport family that supplies a sharp joint set and reference-invariant breakdown factor; and operational consequences connecting direct measurements to identification strength while preserving exact dependence when uncertainty is reported.
+Nor is mechanism identification reducible to null testing, goodness of fit or counterfactual causal identification. Null testing concerns a designated restriction; goodness of fit concerns agreement between predictions and observations; causal identification concerns a specified intervention or counterfactual estimand under its assumptions. The present problem concerns equivalence classes induced by an observation map over declared mechanism states. These objects can interact, but none substitutes automatically for the others.
 
-The results assume positive multiplicative stages where a product map is declared. Zeros require separate treatment. Sum-of-products architectures, additive interactions and other nonlinear maps can create additional equivalence structures and require their own observation maps. Transport bounds must be externally informed or explicitly treated as sensitivity parameters rather than chosen after seeing a desired conclusion.
+Structural identifiability and parametric identification are classical problems of whether model structure or parameters are uniquely recoverable from observable behaviour (Bellman & Åström 1970; Rothenberg 1971), while partial identification explicitly treats cases in which the data and assumptions determine a set rather than a point (Manski 2003). The algebra used here is elementary relative to those traditions. The contribution has four quantitative parts: an exact observation-rank criterion for a recurring log-linear class; the net-only ecological product class and its coordinate-anchor corollary; a calibration-transport family that supplies a sharp joint set and reference-invariant breakdown factor; and operational consequences connecting direct measurements to identification strength while preserving exact dependence when uncertainty is reported.
+
+The results assume positive multiplicative stages where a product map is declared, and the rank criterion assumes exact log-linear observation rows. Zeros require separate treatment. Sum-of-products architectures, additive interactions and other nonlinear maps can create additional equivalence structures and require their own observation maps. Noisy observations can gain discriminating power through increased precision when candidate mechanisms make approximately rather than exactly identical predictions. Transport bounds must be externally informed or explicitly treated as sensitivity parameters rather than chosen after seeing a desired conclusion.
 
 ## 10. Discussion
 
 The main distinction is not between field data and molecular data. It is between **where an observation sits in a biological chain** and **what that observation identifies among competing mechanisms**. These properties can be related, but they are not the same dimension.
 
-The product theorems make this point exact in one recurring ecological architecture. Endpoint-only observation of a positive `k`-stage product leaves `k-1` structural degrees of freedom, and measuring the endpoint more precisely does not change that dimension. Each independent direct channel measurement removes one. The investigator must change the observation map, impose scientifically defended restrictions, or report the remaining equivalence set.
+The rank result makes the observation boundary exact in one recurring class. If the current exact log-linear observation matrix has rank below `k`, the remaining structural dimension is `k-rank(M)`. More samples, more decimal places or duplicate derived variables can improve precision without changing that structural dimension when they leave the row span unchanged. Mechanism resolution then requires changing the observation map, imposing scientifically defended restrictions, or reporting the remaining equivalence set. The product result is the simplest ecological instance: endpoint-only observation of a positive `k`-stage product leaves `k-1` structural degrees of freedom, and each independent direct channel measurement removes one.
+
+This is a stronger and more useful limitation statement than simply noting that an expensive variable such as fitness, physiology or molecular state was not measured. The relevant question is whether the missing measurement would add an identification direction for the competing explanations at issue. A biologically deep measurement can be redundant for that contrast; a comparatively simple field measurement can be decisive if it cuts an equivalence direction.
 
 Relative proxy comparisons add a different identification problem. They are protected not by taking ratios alone but by transport of the proxy-to-channel conversion. Once that hidden assumption is written as `kappa=q_1/q_0`, stable calibration, bounded uncertainty and unrestricted drift become one identification family.
 
-The resulting workflow is: declare the competing mechanisms and observation map; ask which distinctions that map preserves; classify the current evidence by identification strength rather than measurement level alone; count unresolved dimensions or transport parameters; acquire channel or calibration anchors according to the inference required; and report the corresponding sharp set or point estimate while preserving the identified dependence structure.
+The resulting workflow is: declare the competing mechanisms and observation map; ask which distinctions that map preserves; separate structural ambiguity from null rejection, fit and sampling uncertainty; classify the current evidence by identification strength rather than measurement level alone; count unresolved rank dimensions or transport parameters; acquire observations that add missing identification information; and report the corresponding sharp set or point estimate while preserving the identified dependence structure.
+
+This Perspective stops at the boundary diagnosis and restricted design rules. A separate observation-design problem begins when several feasible candidate measurements could break different parts of the remaining equivalence set and costs or sequential outcomes matter. In that setting the next question is not merely whether a candidate can add an identification direction, but which feasible candidate is expected to reduce the current mechanism ambiguity most.
 
 ## Figure captions
 
 **Figure 1. Biological proximity and identification strength are distinct dimensions of mechanistic evidence.** Illustrative placements include a distal net pattern that is non-identifying, a field measurement that directly anchors a missing channel, a proximal molecular signature shared by several mechanisms, and a proximal intervention that separates alternatives. Positions are conditional on the candidate mechanism set and observation map.
 
-**Figure 2. Direct channel measurements reduce the unresolved dimension of a positive multiplicative chain.** Endpoint-only observation leaves `k-1` dimensions; `r` independent channel anchors leave `k-1-r`; `k-1` anchors point-identify the final stage from the product.
+**Figure 2. Direct channel measurements reduce the unresolved dimension of a positive multiplicative chain.** Endpoint-only observation leaves `k-1` dimensions; `r` independent channel anchors leave `k-1-r`; `k-1` anchors point-identify the final stage from the product. More generally, exact log-linear observations leave `k-rank(M)` dimensions, and only candidates that add row rank reduce this structural ambiguity.
 
 **Figure 3. Calibration transport determines identification strength in the two-channel proxy case.** `Gamma=1` gives point identification; finite `Gamma` gives a sharp one-dimensional joint set; removing the finite bound recovers non-identification. In log-ratio coordinates the joint set has slope `-1`. The worked breakdown is `Gamma*=1.34`.
 
