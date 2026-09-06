@@ -7,6 +7,10 @@ This file is the stop rule against claim escalation. Every headline statement mu
 | Biological proximity and identification strength are distinct dimensions | Perspective synthesis | Ungerer 2008; Rudman 2018; Grace 2025; Smith 2020; Siegel & Dee 2025 | Fig. 1 | Do not claim statistical independence or a universal ecology-wide hierarchy |
 | A proximal measurement can remain non-identifying | Conceptual consequence | identification definition + genomic literature | Fig. 1 | Conditional on declared competing mechanisms |
 | A field measurement can strongly discriminate mechanisms | Conceptual/design consequence | Smith 2020; design logic | Fig. 1 | Do not claim field evidence is generally superior |
+| Rejecting a null does not by itself identify which non-null mechanism generated the observation | Inferential scope distinction | definition of mechanism identification; causal/mechanistic literature | text | Do not claim null testing is unimportant or always unrelated |
+| Exact fit can coexist with mechanism non-identification | Exact structural consequence | N1 invariance + R1 | text | This is not a statement that fit diagnostics are unnecessary |
+| Sampling precision and structural identification are distinct resources | Exact corollary in declared class | R2a + observation-rank tests | text | More precision can distinguish approximately different predictions; claim only unchanged exact row-span invariance |
+| Identification of a causal contrast and identification of a complete mechanism decomposition are distinct targets | Perspective-level scope distinction | Grace 2025; Siegel & Dee 2025; observation-map definition | text | Do not present observational discrimination as a substitute for intervention when the estimand is causal |
 | For exact log-linear observations of a positive multiplicative chain, residual structural dimension is `k-rank(M)` | Exact necessary-and-sufficient theorem | `docs/observation_rank_identification_theorem_2026-09-03.md`, Theorem R1; exhaustive rank oracle | Fig. 2 / text | Exact log-linear observation class; sampling uncertainty is separate |
 | A new scalar observation reduces structural ambiguity iff its row lies outside the current observation row span | Exact necessary-and-sufficient design theorem | Theorem R2 + `tests/test_observation_rank_theorem.py` | Fig. 2 / text | One exact scalar log-linear candidate; nonlinear/noisy candidates require their own observation map |
 | Repeating, rescaling, or improving precision of an observation without changing the observation row span cannot reduce structural unidentified dimension | Exact corollary | R2a | text | Structural identification statement, not a claim that precision has no statistical value |
@@ -26,7 +30,8 @@ Even if reviewers reject the broadest rhetoric, the paper still contains:
 2. a necessary-and-sufficient rank criterion for exact log-linear identification, including the exact condition under which a new measurement reduces ambiguity;
 3. `k-1-r` as a proved coordinate-anchor corollary rather than a dimension-count definition;
 4. the symmetric calibration-transport family, sharp joint set and breakdown factor;
-5. direct field-design and reporting consequences.
+5. explicit separation of structural observation limits from null rejection, goodness of fit, sampling precision and causal-counterfactual estimands;
+6. direct field-design and reporting consequences.
 
 ## Claim-escalation stop rule
 
