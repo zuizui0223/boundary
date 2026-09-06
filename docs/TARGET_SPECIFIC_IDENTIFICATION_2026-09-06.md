@@ -100,3 +100,13 @@ pytest -q tests/test_target_identification.py
 ```
 
 The tests include the key witness in which three distinct mechanisms remain compatible but all map to the same target value.
+
+## 6. From one fibre to the MROD handoff
+
+The [target-factorization contract](target_factorization_bridge.md) separates
+local identification at one observation from global `T=g(O)` on a declared domain.
+Its finite audit constructs a reconstruction map or returns a same-observation,
+different-target pair. A versioned fixture shared with MROD tests the corresponding
+target-information and complete-repair conditions. Entropy zero implies structural
+identification only with the stated finite full-support assumptions; sampled-pool
+concentration is not a replacement for checking the compatible-world domain.
