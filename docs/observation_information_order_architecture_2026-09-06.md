@@ -149,7 +149,63 @@ Q structurally new
 
 A new observation can separate nuisance parameters while leaving `S` unchanged, so Boundary's rank screen does not replace MROD's information value.
 
-## 6. Full architecture and repair loop
+## 6. Sensitivity propagation: identification robustness is not recommendation robustness
+
+Boundary can generate a **family** of compatible sets indexed by a declared identification or transport assumption. Write the sensitivity index generically as `lambda`; examples include the calibration-transport factor `Gamma`, a bounded drift parameter, or another assumption that changes the identified set:
+
+```text
+lambda -> A_lambda -> pi_S(A_lambda).
+```
+
+Boundary asks whether a scientific conclusion survives that family. A directional breakdown factor such as `Gamma*` answers a question of the form
+
+> Over what assumption range does the current conclusion remain identified in the same direction?
+
+MROD asks a different downstream question. Once each admissible state under `lambda` has a mechanism projection and candidate predictive distribution, the same assumption family can induce a family of next-observation values
+
+```text
+V_lambda(Q) = I_lambda(S;Q | A_lambda)/K,
+```
+
+and therefore a family of recommended candidates
+
+```text
+B_lambda = argmax_Q V_lambda(Q).
+```
+
+Two robustness statements must not be conflated:
+
+```text
+identification robustness:
+    the scientific conclusion is stable across lambda
+
+recommendation robustness:
+    the identity of the best next observation is stable across lambda
+```
+
+A conclusion can remain directionally robust while the most informative next observation changes, because different assumptions can redistribute the residual mechanism ambiguity without overturning the current directional conclusion. Conversely, the same next observation can remain optimal even while the identified conclusion becomes assumption-sensitive.
+
+For a finite, predeclared sensitivity set `Lambda`, a simple reporting diagnostic is
+
+```text
+B_common = intersection_{lambda in Lambda} B_lambda.
+```
+
+A nonempty `B_common` means at least one ordinary MROD candidate is optimal throughout the declared assumption set. An empty `B_common` means the **next-observation recommendation itself** is assumption-sensitive. This is a reporting diagnostic, not a new robust-design objective; maximin, robust-EIG, model-averaging or regret criteria would add extra decision assumptions.
+
+This creates a useful bridge between the active Boundary sensitivity logic and MROD without merging their papers:
+
+```text
+Boundary:
+assumption family -> identified-set family -> conclusion breakdown
+
+MROD:
+same propagated family -> candidate-information family -> recommendation stability
+```
+
+For example, if a Boundary result states that a directional conclusion survives calibration drift up to a declared `Gamma`, a downstream MROD analysis can separately ask whether the same follow-up measurement is optimal throughout that tolerated drift range.
+
+## 7. Full architecture and repair loop
 
 A useful cross-project schematic is
 
@@ -170,7 +226,7 @@ The last arrow matters. An MROD candidate that is collected in the field still p
 
 Thus MROD is not outside REC/TNOA. It is a downstream design decision whose chosen observation may loop back through those upstream evidence contracts.
 
-## 7. Signed information view
+## 8. Signed information view
 
 The architecture contains operations of different signs and one diagnostic layer:
 
@@ -184,7 +240,7 @@ The architecture contains operations of different signs and one diagnostic layer
 
 Do not force these effects into one additive information-loss number. They act on different objects and, for nonlinear ecological estimands, their consequences need not add.
 
-## 8. Relation to proximate and ultimate explanation
+## 9. Relation to proximate and ultimate explanation
 
 The architecture does not require choosing between a deepest proximate measurement and a complete ultimate fitness analysis. A mechanism vocabulary can span links such as
 
@@ -200,7 +256,7 @@ Boundary diagnoses which links remain observationally interchangeable under the 
 
 This is the practical bridge between proximate and ultimate explanation: identify the unresolved link, then measure where the competing explanations make different predictions.
 
-## 9. Strong common principle
+## 10. Strong common principle
 
 Across the projects, the common rule is not `collect more data` and not `always abstain`. It is:
 
@@ -214,7 +270,7 @@ preserve -> audit -> diagnose -> resolve
 
 with each verb owned by a different evidence problem rather than one omnibus method.
 
-## 10. Scope guard
+## 11. Scope guard
 
 This note does not claim:
 
@@ -223,6 +279,8 @@ This note does not claim:
 - that information losses at different stages are additive;
 - that MROD repairs missing records or semantic misclassification automatically;
 - that observational mechanism discrimination substitutes for causal intervention when the estimand is causal;
-- that a structurally new measurement necessarily has positive mechanism value.
+- that a structurally new measurement necessarily has positive mechanism value;
+- that conclusion robustness across an assumption family guarantees recommendation robustness;
+- that the common-best reporting diagnostic replaces robust experimental-design methods.
 
 The purpose is only to locate distinct questions in one information-order architecture so their claims do not overlap accidentally.
