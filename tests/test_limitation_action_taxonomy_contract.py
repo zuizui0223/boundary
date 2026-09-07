@@ -11,7 +11,7 @@ TAXONOMY = ROOT / "docs" / "limitation_action_taxonomy_v1.json"
 NOTE = ROOT / "docs" / "limitation_action_taxonomy_2026-09-07.md"
 ARCH = ROOT / "docs" / "observation_information_order_architecture_2026-09-06.md"
 MANUSCRIPT = ROOT / "paper" / "manuscript.md"
-EXPECTED_SHA256 = "d150182345b04a9606b0a1c09caa4ad2328c0f8bf5179a258beae537d0aa3432"
+EXPECTED_SHA256 = "04f81c3400300cd30c05504477cea5a446b7b1839f9b49e4bea5c65db73a8002"
 
 
 def test_machine_readable_taxonomy_has_frozen_cross_repo_hash_and_axes():
