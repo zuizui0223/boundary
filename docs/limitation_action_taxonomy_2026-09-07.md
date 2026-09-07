@@ -3,7 +3,7 @@
 Status: **future cross-program architecture / claim-ceiling contract**. This document does not modify the active Boundary Perspective, MROD MEE manuscript, REC manuscript or TNOA paper claims.
 
 Machine-readable contract: `docs/limitation_action_taxonomy_v1.json`  
-Canonical SHA-256: `d150182345b04a9606b0a1c09caa4ad2328c0f8bf5179a258beae537d0aa3432`
+Canonical SHA-256: `04f81c3400300cd30c05504477cea5a446b7b1839f9b49e4bea5c65db73a8002`
 
 ## 1. Do not compress different limitations into one severity score
 
