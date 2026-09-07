@@ -99,7 +99,7 @@
       "owner": "MROD",
       "states": [
         {
-          "action": "measure_best_candidate_if_budget_available",
+          "action": "measure_best_candidate",
           "state": "positive_singleton"
         },
         {
