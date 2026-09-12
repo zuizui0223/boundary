@@ -7,6 +7,7 @@
   "role_contract": "paper/BOUNDARY_ROLE_CONTRACT_2026-09-12.json",
   "proposal": "paper/ecology_letters_proposal.md",
   "email_draft": "paper/ecology_letters_proposal_email.md",
+  "editorial_red_team": "paper/C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md",
   "machine_checks": {
     "previous_full_ci_run": 34564387475,
     "previous_full_ci_conclusion": "success",
@@ -16,6 +17,8 @@
     "proposal_first_route_verified_2026_09_12": true,
     "full_manuscript_not_required_before_invitation": true,
     "boundary_c2_ced_ownership_firewall_present": true,
+    "editorial_red_team_completed": true,
+    "editorial_red_team_decision": "GO if activated",
     "machine_blockers": 0
   },
   "human_gates_before_send": [
