@@ -88,17 +88,21 @@ def test_ecology_letters_proposal_surface_matches_live_gate() -> None:
 
 def test_activation_is_strategy_gate_not_science_gate() -> None:
     contract = _load()
+    readiness = _load(READINESS)
     assert "C2 is declined or judged too broad" in contract["activation_rule"]
     assert contract["machine_blockers"] == 0
-    assert any("activated" in item for item in contract["human_gates_before_activation_or_send"])
+    assert "keep parked until C2 editorial outcome" == readiness["strategy_decision"]["current_action"]
+    assert readiness["strategy_decision"]["science_reason_for_parking"] is False
+    assert readiness["strategy_decision"]["machine_reason_for_parking"] is False
+    assert readiness["current_human_blockers"] == []
     assert "Do not move Boundary theorems into C2 or CED" in contract["stop_rule"]
 
 
-def test_c1_send_readiness_is_machine_ready_but_parked() -> None:
+def test_c1_send_readiness_is_machine_ready_but_strategically_parked() -> None:
     readiness = _load(READINESS)
     assert readiness["paper"] == "C1_BOUNDARY"
     assert readiness["target"] == "Ecology Letters Perspective"
-    assert readiness["status"] == "machine-ready-parked-human-activation-open"
+    assert readiness["status"] == "machine-ready-strategically-parked"
     assert readiness["editorial_red_team"] == "paper/C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md"
     assert RED_TEAM.exists()
 
@@ -121,9 +125,8 @@ def test_c1_send_readiness_is_machine_ready_but_parked() -> None:
     assert "Risk: C1 duplicates C2" in red_team
     assert "Risk: the proposal lacks an author-qualification statement" in red_team
 
-    human_ids = {row["id"] for row in readiness["human_gates_before_send"] if row["required"]}
+    human_ids = {row["id"] for row in readiness["human_gates_if_activated"] if row["required"]}
     assert human_ids == {
-        "activation",
         "authorship",
         "author_qualification",
         "contact_metadata",
