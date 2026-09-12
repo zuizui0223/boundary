@@ -57,6 +57,7 @@ def test_ced_is_downstream_reportability_not_boundary_owner() -> None:
 
 def test_ecology_letters_proposal_surface_matches_live_gate() -> None:
     contract = _load()
+    readiness = _load(READINESS)
     rules = contract["live_ecology_letters_rules_checked_2026_09_12"]
     assert rules["proposal_max_words"] == 300
     assert rules["proposal_first_required"] is True
@@ -69,7 +70,13 @@ def test_ecology_letters_proposal_surface_matches_live_gate() -> None:
 
     proposal = PROPOSAL.read_text(encoding="utf-8")
     body = proposal.split("## Proposal", 1)[1]
-    assert len(WORD_RE.findall(body)) <= 300
+    word_count = len(WORD_RE.findall(body))
+    assert word_count == 226
+    assert word_count <= 300
+    checks = readiness["machine_checks"]
+    assert checks["current_proposal_word_count_checker_semantics"] == word_count
+    assert checks["current_proposal_word_headroom"] == 300 - word_count == 74
+    assert checks["author_qualification_recommended_max_words"] <= checks["current_proposal_word_headroom"]
 
     email = EMAIL.read_text(encoding="utf-8")
     assert "ecolets@cefe.cnrs.fr" in email
@@ -97,6 +104,9 @@ def test_c1_send_readiness_is_machine_ready_but_parked() -> None:
     checks = readiness["machine_checks"]
     assert checks["previous_full_ci_conclusion"] == "success"
     assert checks["proposal_word_ceiling"] == 300
+    assert checks["current_proposal_word_count_checker_semantics"] == 226
+    assert checks["current_proposal_word_headroom"] == 74
+    assert checks["author_qualification_recommended_max_words"] == 40
     assert checks["both_editorial_office_addresses_present"] is True
     assert checks["proposal_first_route_verified_2026_09_12"] is True
     assert checks["full_manuscript_not_required_before_invitation"] is True
@@ -119,6 +129,7 @@ def test_c1_send_readiness_is_machine_ready_but_parked() -> None:
         "live_rule_recheck",
     }
     assert "Do not send while C1 is parked" in readiness["send_gate"]
+    assert "recommended <=40 words" in readiness["send_gate"]
     forbidden = " ".join(readiness["do_not_do"])
     assert "full Perspective before proposal approval" in forbidden
     assert "transfer Boundary theorem ownership" in forbidden
