@@ -1,0 +1,54 @@
+{
+  "schema": "boundary-c1-send-readiness-v1",
+  "date": "2026-09-12",
+  "paper": "C1_BOUNDARY",
+  "target": "Ecology Letters Perspective",
+  "status": "machine-ready-parked-human-activation-open",
+  "role_contract": "paper/BOUNDARY_ROLE_CONTRACT_2026-09-12.json",
+  "proposal": "paper/ecology_letters_proposal.md",
+  "email_draft": "paper/ecology_letters_proposal_email.md",
+  "machine_checks": {
+    "previous_full_ci_run": 34564387475,
+    "previous_full_ci_conclusion": "success",
+    "proposal_checker_present": true,
+    "proposal_word_ceiling": 300,
+    "both_editorial_office_addresses_present": true,
+    "proposal_first_route_verified_2026_09_12": true,
+    "full_manuscript_not_required_before_invitation": true,
+    "boundary_c2_ced_ownership_firewall_present": true,
+    "machine_blockers": 0
+  },
+  "human_gates_before_send": [
+    {
+      "id": "activation",
+      "required": true,
+      "question": "Activate C1 now, or keep it parked behind the C2 TREE route?"
+    },
+    {
+      "id": "authorship",
+      "required": true,
+      "question": "What is the final C1 author list/order and corresponding author?"
+    },
+    {
+      "id": "author_qualification",
+      "required": true,
+      "question": "What concise factual author-qualification sentence should accompany the proposal?"
+    },
+    {
+      "id": "contact_metadata",
+      "required": true,
+      "question": "Confirm final affiliation and corresponding-author contact details."
+    },
+    {
+      "id": "live_rule_recheck",
+      "required": true,
+      "question": "Immediately before dispatch, recheck the live Ecology Letters Perspective proposal instructions and email addresses."
+    }
+  ],
+  "send_gate": "Do not send while C1 is parked. If activated, fill the author-qualification/contact fields, recheck the total proposal packet against 300 words, then recheck the live journal instructions before dispatch.",
+  "do_not_do": [
+    "do not write the full Perspective before proposal approval",
+    "do not transfer Boundary theorem ownership into C2 or CED",
+    "do not add authors by seniority, supervision, repository ownership or commits alone"
+  ]
+}
