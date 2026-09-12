@@ -32,6 +32,8 @@ Its broad ecological examples are pollination rate × effectiveness and seed dis
 
 **Keep C1 parked until the C2 TREE editorial outcome.**
 
+Keep C1 parked until the C2 editorial outcome.
+
 This is a publication-order decision, not a scientific deficiency. The proposal, email draft, ownership firewall, red-team, and machine checks are already prepared. If C1 is later activated, fill author/qualification/contact fields, rerun the 300-word checker, and recheck the live publisher instructions immediately before dispatch.
 
 ## Dispatch-time rule
