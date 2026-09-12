@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "paper" / "BOUNDARY_ROLE_CONTRACT_2026-09-12.json"
 READINESS = ROOT / "paper" / "C1_SEND_READINESS_2026-09-12.json"
 RED_TEAM = ROOT / "paper" / "C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md"
+LIVE_ROUTE = ROOT / "paper" / "C1_ECOLOGY_LETTERS_LIVE_ROUTE_CHECK_20260912.md"
 ROUTE = ROOT / "paper" / "PUBLICATION_ROUTE_2026-09-11.md"
 PROPOSAL = ROOT / "paper" / "ecology_letters_proposal.md"
 EMAIL = ROOT / "paper" / "ecology_letters_proposal_email.md"
@@ -86,6 +87,26 @@ def test_ecology_letters_proposal_surface_matches_live_gate() -> None:
     assert "Do not infer qualification from repository ownership or seniority alone" in email
 
 
+def test_live_route_receipt_matches_current_official_gate() -> None:
+    readiness = _load(READINESS)
+    assert readiness["live_route_check"] == "paper/C1_ECOLOGY_LETTERS_LIVE_ROUTE_CHECK_20260912.md"
+    assert LIVE_ROUTE.exists()
+    assert readiness["machine_checks"]["live_route_receipt_written"] is True
+
+    text = LIVE_ROUTE.read_text(encoding="utf-8")
+    for token in (
+        "no more than 300 words",
+        "ecolets@cefe.cnrs.fr",
+        "ecolets2@cefe.cnrs.fr",
+        "same novelty expectation as a Letter",
+        "Current C1 fit",
+        "226 words",
+        "Keep C1 parked until the C2 editorial outcome",
+        "dispatch-time recheck still required",
+    ):
+        assert token in text
+
+
 def test_activation_is_strategy_gate_not_science_gate() -> None:
     contract = _load()
     readiness = _load(READINESS)
@@ -114,6 +135,7 @@ def test_c1_send_readiness_is_machine_ready_but_strategically_parked() -> None:
     assert checks["author_qualification_recommended_max_words"] == 40
     assert checks["both_editorial_office_addresses_present"] is True
     assert checks["proposal_first_route_verified_2026_09_12"] is True
+    assert checks["live_route_receipt_written"] is True
     assert checks["full_manuscript_not_required_before_invitation"] is True
     assert checks["boundary_c2_ced_ownership_firewall_present"] is True
     assert checks["editorial_red_team_completed"] is True
