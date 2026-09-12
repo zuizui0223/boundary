@@ -1,0 +1,62 @@
+{
+  "schema": "boundary-publication-role-contract-v1",
+  "date": "2026-09-12",
+  "repository": "zuizui0223/boundary",
+  "submission_unit": "C1",
+  "status": "independent-owner-parked-conditional",
+  "target": "Ecology Letters Perspective",
+  "working_title": "Mechanistic evidence needs an identification axis: measurement boundaries in ecological chains",
+  "exclusive_scientific_ownership": [
+    "structural identification dimension k-rank(M) for the declared log-linear observation map",
+    "new scalar measurement reduces structural ambiguity iff its row lies outside the current row span",
+    "positive-product unidentified directions and direct-anchor dimension reduction",
+    "proxy-ratio uncertainty under the Gamma transport family",
+    "sharp joint identified sets and breakdown factor",
+    "Gamma/kappa/anchor-ladder identification diagnostics"
+  ],
+  "c2_interface": {
+    "paper": "C2_MORE_MEASUREMENT_NOT_MORE_EVIDENCE",
+    "allowed_role": "geometry exemplar only",
+    "allowed_claim": "more precision or more measurements along an existing observation direction need not improve structural identification",
+    "forbidden_transfer": [
+      "C2 must not re-own k-rank(M) as its theorem",
+      "C2 must not re-own Gamma/kappa/breakdown-factor results",
+      "C2 must not re-own anchor-ladder or ecological-chain theorem details"
+    ]
+  },
+  "ced_interface": {
+    "repository": "zuizui0223/ced",
+    "relationship": "external identification-geometry source/contrast only",
+    "ced_owns": "target-safe reportability, failure-aware refinement, and risk-limited reporting/stopping",
+    "boundary_retains": "structural identification geometry and rank-based measurement-boundary results",
+    "ownership_transfer": false
+  },
+  "activation_rule": "Activate C1 if C2 is declined or judged too broad, or if both can proceed under an explicit firewall where C1 owns the identification-axis argument and C2 owns the four-failure synthesis.",
+  "proposal_assets": {
+    "proposal": "paper/ecology_letters_proposal.md",
+    "email": "paper/ecology_letters_proposal_email.md",
+    "publication_route": "paper/PUBLICATION_ROUTE_2026-09-11.md"
+  },
+  "live_ecology_letters_rules_checked_2026_09_12": {
+    "proposal_max_words": 300,
+    "proposal_first_required": true,
+    "full_manuscript_without_invitation_or_approved_proposal_considered": false,
+    "proposal_email_recipients": [
+      "ecolets@cefe.cnrs.fr",
+      "ecolets2@cefe.cnrs.fr"
+    ],
+    "perspective_max_main_text_words_if_invited": 7500,
+    "perspective_max_figures_tables_boxes_if_invited": 10,
+    "novelty_expectation": "same expectation for novelty as a Letter",
+    "broad_ecological_interest_required": true,
+    "quantitative_analysis_usually_strengthens_perspective": true
+  },
+  "machine_blockers": 0,
+  "human_gates_before_activation_or_send": [
+    "decide whether C1 is activated now or remains parked behind C2",
+    "confirm final C1 author list and author qualifications for the proposal",
+    "confirm corresponding-author/contact metadata",
+    "recheck live Ecology Letters proposal instructions immediately before dispatch"
+  ],
+  "stop_rule": "Do not move Boundary theorems into C2 or CED merely to simplify the publication count."
+}
