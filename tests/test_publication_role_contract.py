@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "paper" / "BOUNDARY_ROLE_CONTRACT_2026-09-12.json"
 READINESS = ROOT / "paper" / "C1_SEND_READINESS_2026-09-12.json"
+RED_TEAM = ROOT / "paper" / "C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md"
 ROUTE = ROOT / "paper" / "PUBLICATION_ROUTE_2026-09-11.md"
 PROPOSAL = ROOT / "paper" / "ecology_letters_proposal.md"
 EMAIL = ROOT / "paper" / "ecology_letters_proposal_email.md"
@@ -90,6 +91,9 @@ def test_c1_send_readiness_is_machine_ready_but_parked() -> None:
     assert readiness["paper"] == "C1_BOUNDARY"
     assert readiness["target"] == "Ecology Letters Perspective"
     assert readiness["status"] == "machine-ready-parked-human-activation-open"
+    assert readiness["editorial_red_team"] == "paper/C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md"
+    assert RED_TEAM.exists()
+
     checks = readiness["machine_checks"]
     assert checks["previous_full_ci_conclusion"] == "success"
     assert checks["proposal_word_ceiling"] == 300
@@ -97,7 +101,14 @@ def test_c1_send_readiness_is_machine_ready_but_parked() -> None:
     assert checks["proposal_first_route_verified_2026_09_12"] is True
     assert checks["full_manuscript_not_required_before_invitation"] is True
     assert checks["boundary_c2_ced_ownership_firewall_present"] is True
+    assert checks["editorial_red_team_completed"] is True
+    assert checks["editorial_red_team_decision"] == "GO if activated"
     assert checks["machine_blockers"] == 0
+
+    red_team = RED_TEAM.read_text(encoding="utf-8")
+    assert "Decision: **GO if activated" in red_team
+    assert "Risk: C1 duplicates C2" in red_team
+    assert "Risk: the proposal lacks an author-qualification statement" in red_team
 
     human_ids = {row["id"] for row in readiness["human_gates_before_send"] if row["required"]}
     assert human_ids == {
