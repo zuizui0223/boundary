@@ -13,6 +13,9 @@
     "previous_full_ci_conclusion": "success",
     "proposal_checker_present": true,
     "proposal_word_ceiling": 300,
+    "current_proposal_word_count_checker_semantics": 226,
+    "current_proposal_word_headroom": 74,
+    "author_qualification_recommended_max_words": 40,
     "both_editorial_office_addresses_present": true,
     "proposal_first_route_verified_2026_09_12": true,
     "full_manuscript_not_required_before_invitation": true,
@@ -35,7 +38,7 @@
     {
       "id": "author_qualification",
       "required": true,
-      "question": "What concise factual author-qualification sentence should accompany the proposal?"
+      "question": "What concise factual author-qualification sentence should accompany the proposal? Keep it comfortably within the remaining proposal word budget and rerun the checker after filling it."
     },
     {
       "id": "contact_metadata",
@@ -48,7 +51,7 @@
       "question": "Immediately before dispatch, recheck the live Ecology Letters Perspective proposal instructions and email addresses."
     }
   ],
-  "send_gate": "Do not send while C1 is parked. If activated, fill the author-qualification/contact fields, recheck the total proposal packet against 300 words, then recheck the live journal instructions before dispatch.",
+  "send_gate": "Do not send while C1 is parked. If activated, fill the author-qualification/contact fields, keep the qualification concise (recommended <=40 words), rerun the proposal checker against the 300-word ceiling, then recheck the live journal instructions before dispatch.",
   "do_not_do": [
     "do not write the full Perspective before proposal approval",
     "do not transfer Boundary theorem ownership into C2 or CED",
