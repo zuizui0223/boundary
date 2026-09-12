@@ -12,7 +12,8 @@ ROUTE = ROOT / "paper" / "PUBLICATION_ROUTE_2026-09-11.md"
 PROPOSAL = ROOT / "paper" / "ecology_letters_proposal.md"
 EMAIL = ROOT / "paper" / "ecology_letters_proposal_email.md"
 
-WORD_RE = re.compile(r"[A-Za-z0-9]+(?:[-'’][A-Za-z0-9]+)*")
+# Keep proposal word-count semantics identical to paper/check_submission.py.
+WORD_RE = re.compile(r"\b[\w*<>/=+.-]+\b", re.UNICODE)
 
 
 def _load(path: Path = CONTRACT) -> dict:
