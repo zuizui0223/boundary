@@ -3,11 +3,17 @@
   "date": "2026-09-12",
   "paper": "C1_BOUNDARY",
   "target": "Ecology Letters Perspective",
-  "status": "machine-ready-parked-human-activation-open",
+  "status": "machine-ready-strategically-parked",
   "role_contract": "paper/BOUNDARY_ROLE_CONTRACT_2026-09-12.json",
   "proposal": "paper/ecology_letters_proposal.md",
   "email_draft": "paper/ecology_letters_proposal_email.md",
   "editorial_red_team": "paper/C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md",
+  "strategy_decision": {
+    "current_action": "keep parked until C2 editorial outcome",
+    "reason": "C2 is the primary broad concept pitch; Boundary remains the independent identification-geometry owner and is ready to activate if C2 is declined, judged too broad, or if both routes proceed under the explicit firewall.",
+    "science_reason_for_parking": false,
+    "machine_reason_for_parking": false
+  },
   "machine_checks": {
     "previous_full_ci_run": 34564387475,
     "previous_full_ci_conclusion": "success",
@@ -24,12 +30,8 @@
     "editorial_red_team_decision": "GO if activated",
     "machine_blockers": 0
   },
-  "human_gates_before_send": [
-    {
-      "id": "activation",
-      "required": true,
-      "question": "Activate C1 now, or keep it parked behind the C2 TREE route?"
-    },
+  "current_human_blockers": [],
+  "human_gates_if_activated": [
     {
       "id": "authorship",
       "required": true,
@@ -51,7 +53,7 @@
       "question": "Immediately before dispatch, recheck the live Ecology Letters Perspective proposal instructions and email addresses."
     }
   ],
-  "send_gate": "Do not send while C1 is parked. If activated, fill the author-qualification/contact fields, keep the qualification concise (recommended <=40 words), rerun the proposal checker against the 300-word ceiling, then recheck the live journal instructions before dispatch.",
+  "send_gate": "Do not send while C1 is parked. If the strategy gate activates C1, fill the author-qualification/contact fields, keep the qualification concise (recommended <=40 words), rerun the proposal checker against the 300-word ceiling, then recheck the live journal instructions before dispatch.",
   "do_not_do": [
     "do not write the full Perspective before proposal approval",
     "do not transfer Boundary theorem ownership into C2 or CED",
