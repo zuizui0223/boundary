@@ -8,6 +8,7 @@
   "proposal": "paper/ecology_letters_proposal.md",
   "email_draft": "paper/ecology_letters_proposal_email.md",
   "editorial_red_team": "paper/C1_ECOLOGY_LETTERS_RED_TEAM_2026-09-12.md",
+  "live_route_check": "paper/C1_ECOLOGY_LETTERS_LIVE_ROUTE_CHECK_20260912.md",
   "strategy_decision": {
     "current_action": "keep parked until C2 editorial outcome",
     "reason": "C2 is the primary broad concept pitch; Boundary remains the independent identification-geometry owner and is ready to activate if C2 is declined, judged too broad, or if both routes proceed under the explicit firewall.",
@@ -24,6 +25,7 @@
     "author_qualification_recommended_max_words": 40,
     "both_editorial_office_addresses_present": true,
     "proposal_first_route_verified_2026_09_12": true,
+    "live_route_receipt_written": true,
     "full_manuscript_not_required_before_invitation": true,
     "boundary_c2_ced_ownership_firewall_present": true,
     "editorial_red_team_completed": true,
@@ -50,7 +52,7 @@
     {
       "id": "live_rule_recheck",
       "required": true,
-      "question": "Immediately before dispatch, recheck the live Ecology Letters Perspective proposal instructions and email addresses."
+      "question": "Immediately before dispatch, recheck the live Ecology Letters Perspective proposal instructions and email addresses against the 2026-09-12 receipt."
     }
   ],
   "send_gate": "Do not send while C1 is parked. If the strategy gate activates C1, fill the author-qualification/contact fields, keep the qualification concise (recommended <=40 words), rerun the proposal checker against the 300-word ceiling, then recheck the live journal instructions before dispatch.",
