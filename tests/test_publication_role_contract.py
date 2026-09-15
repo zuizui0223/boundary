@@ -34,6 +34,18 @@ def test_boundary_remains_independent_c1_owner() -> None:
     assert "breakdown factor" in ownership
 
 
+def test_editorial_spine_separates_headline_from_extensions() -> None:
+    contract = _load()
+    spine = contract["editorial_spine"]
+    assert spine["headline_claim"] == "mechanistic proximity is not mechanism identification"
+    assert "identification axis" in spine["conceptual_contribution"]
+    assert "k-rank(M)" in spine["primary_formal_result"]
+    assert "adds row rank" in spine["primary_formal_result"]
+    assert "anchors" in spine["primary_ecological_translation"]
+    assert "proxy-ratio uncertainty" in spine["secondary_extension"]
+    assert "equal headline status" in spine["do_not_present_as"]
+
+
 def test_c2_can_use_only_geometry_exemplar_without_ownership_transfer() -> None:
     contract = _load()
     c2 = contract["c2_interface"]
@@ -73,12 +85,14 @@ def test_ecology_letters_proposal_surface_matches_live_gate() -> None:
     proposal = PROPOSAL.read_text(encoding="utf-8")
     body = proposal.split("## Proposal", 1)[1]
     word_count = len(WORD_RE.findall(body))
-    assert word_count == 226
+    assert word_count == 210
     assert word_count <= 300
     checks = readiness["machine_checks"]
     assert checks["current_proposal_word_count_checker_semantics"] == word_count
-    assert checks["current_proposal_word_headroom"] == 300 - word_count == 74
+    assert checks["current_proposal_word_headroom"] == 300 - word_count == 90
     assert checks["author_qualification_recommended_max_words"] <= checks["current_proposal_word_headroom"]
+    assert checks["editorial_spine_refocused_on_identification_axis"] is True
+    assert checks["proxy_breakdown_demoted_to_secondary_extension"] is True
 
     email = EMAIL.read_text(encoding="utf-8")
     assert "ecolets@cefe.cnrs.fr" in email
@@ -100,7 +114,8 @@ def test_live_route_receipt_matches_current_official_gate() -> None:
         "ecolets2@cefe.cnrs.fr",
         "same novelty expectation as a Letter",
         "Current C1 fit",
-        "226 words",
+        "210 words",
+        "90 words",
         "Keep C1 parked until the C2 editorial outcome",
         "dispatch-time recheck still required",
     ):
@@ -130,14 +145,16 @@ def test_c1_send_readiness_is_machine_ready_but_strategically_parked() -> None:
     checks = readiness["machine_checks"]
     assert checks["previous_full_ci_conclusion"] == "success"
     assert checks["proposal_word_ceiling"] == 300
-    assert checks["current_proposal_word_count_checker_semantics"] == 226
-    assert checks["current_proposal_word_headroom"] == 74
+    assert checks["current_proposal_word_count_checker_semantics"] == 210
+    assert checks["current_proposal_word_headroom"] == 90
     assert checks["author_qualification_recommended_max_words"] == 40
     assert checks["both_editorial_office_addresses_present"] is True
     assert checks["proposal_first_route_verified_2026_09_12"] is True
     assert checks["live_route_receipt_written"] is True
     assert checks["full_manuscript_not_required_before_invitation"] is True
     assert checks["boundary_c2_ced_ownership_firewall_present"] is True
+    assert checks["editorial_spine_refocused_on_identification_axis"] is True
+    assert checks["proxy_breakdown_demoted_to_secondary_extension"] is True
     assert checks["editorial_red_team_completed"] is True
     assert checks["editorial_red_team_decision"] == "GO if activated"
     assert checks["machine_blockers"] == 0
