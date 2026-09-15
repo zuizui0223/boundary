@@ -6,6 +6,14 @@
   "status": "independent-owner-parked-conditional",
   "target": "Ecology Letters Perspective",
   "working_title": "Mechanistic evidence needs an identification axis: measurement boundaries in ecological chains",
+  "editorial_spine": {
+    "headline_claim": "mechanistic proximity is not mechanism identification",
+    "conceptual_contribution": "mechanistic evidence should be evaluated on an explicit identification axis",
+    "primary_formal_result": "for the declared positive log-linear observation map, residual structural dimension is k-rank(M), and a new scalar measurement reduces ambiguity iff it adds row rank",
+    "primary_ecological_translation": "measurements of components or anchors are valuable when they cut an unresolved mechanism direction, not merely because they are more biologically proximal",
+    "secondary_extension": "proxy-ratio uncertainty, sharp identified sets and breakdown factors extend the identification-axis logic when direct anchors are unavailable",
+    "do_not_present_as": "a catalogue in which rank geometry, product anchors, Gamma/kappa, sharp sets and breakdown factor have equal headline status"
+  },
   "exclusive_scientific_ownership": [
     "structural identification dimension k-rank(M) for the declared log-linear observation map",
     "new scalar measurement reduces structural ambiguity iff its row lies outside the current row span",
