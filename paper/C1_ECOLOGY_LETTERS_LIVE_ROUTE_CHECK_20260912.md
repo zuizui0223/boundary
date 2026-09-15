@@ -24,9 +24,9 @@ For a Perspective:
 
 ## Current C1 fit
 
-The current Boundary proposal is a one-paragraph, quantitative identification-axis argument rather than a general review. It is **226 words** under the repository's canonical `paper/check_submission.py` counting semantics, leaving 74 words below the current 300-word proposal ceiling.
+The current Boundary proposal is a one-paragraph, quantitative identification-axis argument rather than a general review. It is **210 words** under the repository's canonical `paper/check_submission.py` counting semantics, leaving **90 words** below the current 300-word proposal ceiling.
 
-Its broad ecological examples are pollination rate × effectiveness and seed dispersal quantity × quality. The independent C1 novelty surface remains the structural identification axis: exact rank geometry, positive-product unidentified directions, direct-anchor reduction, bounded proxy transport, and the Γ/κ/breakdown diagnostics.
+The proposal now has one headline: biological proximity to mechanism and mechanism identification are distinct properties, so mechanistic evidence needs an explicit identification axis. The primary formal surface is the `k-rank(M)` residual dimension plus the row-rank-gain criterion for a useful new measurement. Pollination rate × effectiveness and seed-dispersal quantity × quality provide the ecological-chain translation. Proxy uncertainty, sharp identified sets and breakdown analysis remain secondary extensions for cases where direct anchors are unavailable rather than co-equal proposal headlines.
 
 ## Current strategy state
 
