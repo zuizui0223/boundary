@@ -26,10 +26,18 @@ def main():
     paras=[z.strip() for z in re.split(r'\n\s*\n',proposal) if z.strip()]
     if len(paras)!=1: raise SystemExit('proposal must be one paragraph')
     if words(proposal)>300: raise SystemExit(f'proposal >300 words: {words(proposal)}')
-    for token in ('identification axis','k-1-r','1/Gamma <= q_1/q_0 <= Gamma','breakdown factor'):
+
+    # C1 proposal headline: one identification-axis argument, not a catalogue of equal-status results.
+    for token in ('identification axis','k-rank(M)','adds row rank','anchors'):
         require(proposal,token)
-    for token in ('pollination','seed dispersal'):
+    for token in ('pollination','seed dispersal','proxy uncertainty','breakdown analysis'):
         require_ci(proposal,token)
+
+    # The old detail-heavy proposal should not be restored as the default pitch surface.
+    for token in ('1/Gamma <= q_1/q_0 <= Gamma','k-1-r'):
+        forbid(proposal,token)
+
+    # Full manuscript retains the exact technical development behind the focused proposal.
     for token in ('k - 1 - r','Gamma*=max(rho_hat,1/rho_hat)','Design Rule 1','Design Rule 2','Figure 1. Biological proximity','Figure 2. Direct channel','Figure 3. Calibration transport'):
         require(m,token)
     for token in ('Ecology believes molecular data are mechanism and field data are pattern','Molecular data are not mechanistic','statistically independent'):
