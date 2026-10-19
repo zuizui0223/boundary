@@ -33,3 +33,38 @@ def test_active_boundary_manuscript_does_not_absorb_future_mrod_diagnostic():
     text = MANUSCRIPT.read_text(encoding="utf-8")
     assert "B_common" not in text
     assert "recommendation robustness" not in text
+
+
+def test_same_resolution_flag_does_not_imply_same_identified_target_image():
+    # Finite counterexamples independent of MROD scoring or a model-fitting method.
+    images = {
+        "spec_a": {"pollination_only", "combined"},
+        "spec_b": {"abiotic_only", "combined"},
+    }
+    assert {len(image) == 1 for image in images.values()} == {False}
+    assert images["spec_a"] != images["spec_b"]
+
+    point_images = {
+        "spec_a": {"pollination_only"},
+        "spec_b": {"abiotic_only"},
+    }
+    assert {len(image) == 1 for image in point_images.values()} == {True}
+    assert point_images["spec_a"] != point_images["spec_b"]
+
+
+def test_future_bridge_requires_identified_image_or_declared_contrast_evidence():
+    text = ARCH.read_text(encoding="utf-8")
+    for marker in (
+        "Resolution-status invariance is not conclusion robustness",
+        "I_lambda(y) = {tau(s) : (theta,s) in A_lambda(y)}",
+        "r_lambda(y) = 1 if |I_lambda(y)|=1, otherwise 0",
+        "compare the actual",
+        "predeclared contrast functional",
+        "resolved/unresolved",
+    ):
+        assert marker in text, marker
+
+    # The future cross-paper clarification is not part of the active Perspective.
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8")
+    assert "I_lambda(y)" not in manuscript
+    assert "Resolution-status invariance" not in manuscript
