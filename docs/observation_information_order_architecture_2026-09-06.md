@@ -173,6 +173,32 @@ and therefore a family of recommended candidates
 B_lambda = argmax_Q V_lambda(Q).
 ```
 
+**Resolution-status invariance is not conclusion robustness.**
+For a fixed predeclared scientific target `T=tau(S)`, the identified target
+image under assumption `lambda` and current observation `y` is
+
+```text
+I_lambda(y) = {tau(s) : (theta,s) in A_lambda(y)}.
+r_lambda(y) = 1 if |I_lambda(y)|=1, otherwise 0.
+```
+
+The indicator `r_lambda` records only whether the target is point-identified.
+Its constancy across `lambda` does **not** establish that the identified
+target image or any substantive scientific conclusion is stable. For instance,
+`I_a={pollination_only, combined}` and
+`I_b={abiotic_only, combined}` both have `r=0`, but they disagree on
+which explanations remain compatible. Even `r=1` throughout is insufficient:
+`I_a={pollination_only}` and `I_b={abiotic_only}` are different
+point-identified answers.
+
+To license a robust **set-valued** conclusion, compare the actual
+`I_lambda(y)` across assumptions; to license a robust narrower directional
+or causal statement, compare its **predeclared contrast functional** over
+each identified image. Set differences alone need not imply a directional
+conclusion changes. Neither check is replaceable by stable
+`resolved/unresolved` flags. Recommendation robustness is independently
+defined through the candidate argmax sets `B_lambda`.
+
 Two robustness statements must not be conflated:
 
 ```text
